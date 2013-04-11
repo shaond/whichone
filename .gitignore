@@ -1,0 +1,9 @@
+*.pyc
+*.db
+*.log
+uploads
+.DS_Store
+*.zip
+static
+
+*.pid

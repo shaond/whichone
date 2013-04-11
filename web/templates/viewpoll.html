@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ poll.desc }}</h1>
+
+<div>
+    <span>
+        <a href="/add/vote/{{random_user}}/{{poll.uuid}}/1"><img src="{{uploaddir}}{{poll.img1 }}" alt="Image 1" /></a>
+    </span>
+    {% if poll.img2 %}
+    <span>
+        <a href="/add/vote/{{random_user}}/{{poll.uuid}}/2"><img src="{{uploaddir}}{{poll.img2 }}" alt="Image 2" /></a>
+    </span>
+    {% endif %}
+</div>
+
+<div>
+<h4>Thumbnails</h4>
+</div>
+
+<div>
+    <span><img src="{{uploaddir}}thumbnails/{{poll.img1}}" /></span>
+    {% if poll.img2 %}
+    <span><img src="{{uploaddir}}thumbnails/{{poll.img2}}" /></span>
+    {% endif %}
+</div>
+
+<p>Created at: {{ poll.created }}</p>
+{% endblock content %}
+
+{% block pagejs %}
+{% endblock pagejs %}

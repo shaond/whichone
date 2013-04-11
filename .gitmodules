@@ -1,0 +1,3 @@
+[submodule "web/contrib/libpynexmo"]
+	path = web/contrib/libpynexmo
+	url = git://github.com/marcuz/libpynexmo.git

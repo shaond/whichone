@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Friend" representedClassName="Friend" syncable="YES">
+        <attribute name="firstname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="registereduser" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="poll" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Poll" inverseName="voter" inverseEntity="Poll" syncable="YES"/>
+    </entity>
+    <entity name="Poll" representedClassName="Poll" syncable="YES">
+        <attribute name="created" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="img1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="img2" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="poll" inverseEntity="User" syncable="YES"/>
+        <relationship name="vote" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Vote" inverseName="poll" inverseEntity="Vote" syncable="YES"/>
+        <relationship name="voter" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Friend" inverseName="poll" inverseEntity="Friend" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="registered" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="poll" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Poll" inverseName="owner" inverseEntity="Poll" syncable="YES"/>
+        <relationship name="vote" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Vote" inverseName="voter" inverseEntity="Vote" syncable="YES"/>
+    </entity>
+    <entity name="Vote" representedClassName="Vote" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="created" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="like" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="poll" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Poll" inverseName="vote" inverseEntity="Poll" syncable="YES"/>
+        <relationship name="voter" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="vote" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Friend" positionX="648" positionY="189" width="128" height="120"/>
+        <element name="Poll" positionX="565" positionY="375" width="128" height="165"/>
+        <element name="User" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="Vote" positionX="414" positionY="63" width="128" height="135"/>
+    </elements>
+</model>
